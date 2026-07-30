@@ -1,0 +1,132 @@
+@import "tailwindcss";
+
+@theme {
+  --font-body: "Vazirmatn", "Segoe UI", Tahoma, sans-serif;
+  --font-display: "Lalezar", "Vazirmatn", serif;
+
+  --color-plum-950: #1c0530;
+  --color-plum-900: #2b0a45;
+  --color-plum-800: #3d1158;
+  --color-blush-50: #fff0f7;
+  --color-blush-100: #ffe0ef;
+  --color-blush-200: #ffc2e0;
+  --color-blush-300: #ff9ecf;
+  --color-blush-400: #ff6fb5;
+  --color-blush-500: #f94d9b;
+  --color-blush-600: #e02f7f;
+
+  --animate-pulse-soft: pulse-soft 2.4s ease-in-out infinite;
+  --animate-heart-beat: heart-beat 1.6s ease-in-out infinite;
+}
+
+@keyframes float-up {
+    0% {
+      transform: translateY(105vh) translateX(0) rotate(-8deg) scale(var(--s, 1));
+      opacity: 0;
+    }
+    8% {
+      opacity: var(--o, 0.5);
+    }
+    50% {
+      transform: translateY(45vh) translateX(var(--sway, 20px)) rotate(10deg) scale(var(--s, 1));
+    }
+    92% {
+      opacity: var(--o, 0.5);
+    }
+    100% {
+      transform: translateY(-12vh) translateX(calc(var(--sway, 20px) * -1)) rotate(-6deg) scale(var(--s, 1));
+      opacity: 0;
+    }
+  }
+  @keyframes twinkle {
+    0%,
+    100% {
+      opacity: 0.15;
+      transform: scale(0.7);
+    }
+    50% {
+      opacity: 0.9;
+      transform: scale(1.15);
+    }
+  }
+  @keyframes pulse-soft {
+    0%,
+    100% {
+      box-shadow: 0 0 0 0 rgba(249, 77, 155, 0.45);
+    }
+    60% {
+      box-shadow: 0 0 0 14px rgba(249, 77, 155, 0);
+    }
+  }
+  @keyframes wobble {
+    0%,
+    100% {
+      transform: rotate(-6deg) translateY(0);
+    }
+    50% {
+      transform: rotate(7deg) translateY(-8px);
+    }
+  }
+  @keyframes heart-beat {
+    0%,
+    100% {
+      transform: scale(1);
+    }
+    14% {
+      transform: scale(1.18);
+    }
+    28% {
+      transform: scale(1);
+    }
+    42% {
+      transform: scale(1.14);
+    }
+    56% {
+      transform: scale(1);
+    }
+  }
+
+html {
+  font-family: var(--font-body);
+}
+
+body {
+  margin: 0;
+  background-color: var(--color-plum-950);
+  color: var(--color-blush-50);
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+::selection {
+  background: rgba(249, 77, 155, 0.5);
+  color: #fff0f7;
+}
+
+.no-scrollbar {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+.font-display {
+  font-family: var(--font-display);
+}
+
+/* نرم‌کردن ورودی‌های بومی در تم تیره */
+input[type="time"]::-webkit-calendar-picker-indicator {
+  filter: invert(1);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.15s !important;
+  }
+}
